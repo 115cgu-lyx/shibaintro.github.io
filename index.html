@@ -18,6 +18,10 @@
     <nav class="site-nav" id="site-nav" aria-label="主要導覽">
       <a href="#home">首頁</a><a href="#archive">柴犬檔案館</a><a href="#personality">性格與行為</a><a href="#care">新手飼養指南</a><a href="#health">常見健康與醫療</a><a href="#fun">迷因與趣味專區</a>
     </nav>
+    <div class="header-tools" aria-label="網站偏好設定">
+      <button class="utility-button language-toggle" id="language-toggle" type="button" aria-label="切換為英文">EN</button>
+      <button class="utility-button theme-toggle" id="theme-toggle" type="button" aria-label="切換深色主題" title="切換深色主題"><span aria-hidden="true">☾</span></button>
+    </div>
   </header>
   <main>
     <section class="hero section-wrap" id="home">
@@ -108,20 +112,155 @@
   <script>
     const menuButton = document.querySelector('.menu-toggle');
     const siteNav = document.querySelector('.site-nav');
+    const languageButton = document.querySelector('#language-toggle');
+    const themeButton = document.querySelector('#theme-toggle');
+    const originalCopy = new Map();
+    function readPreference(key, fallback) {
+      try { return localStorage.getItem(key) || fallback; } catch (error) { return fallback; }
+    }
+    function savePreference(key, value) {
+      try { localStorage.setItem(key, value); } catch (error) { /* Preferences still work for this visit. */ }
+    }
+    const englishCopy = [
+      ['.site-nav a', ['Home', 'Shiba Library', 'Personality', 'First-time Guide', 'Health & Care', 'Fun & Memes']],
+      ['.hero-copy h1', ['A little Shiba,<br><em>a lot of heart.</em>']],
+      ['.hero-lead', ['A little independent, endlessly charming, and wrapped in a fluffy coat. Get to know the Shiba Inu and learn to love their wonderfully unique ways.']],
+      ['.hero-copy .button', ['Meet the Shiba <span>↓</span>']],
+      ['.hero-stats b', ['Japan', 'Double coat', 'Small frame']],
+      ['.hero-stats small', ['Native breed', 'Big seasonal sheds', 'Big opinions']],
+      ['.label-top', ['Walkies, please!']],
+      ['.shiba title', ['A red Shiba Inu']],
+      ['.shiba desc', ['A hand-drawn red Shiba Inu wearing a brick-red bandana.']],
+      ['.art-caption b', ['SHIBA INU']],
+      ['.art-caption small', ['A little joy in every day']],
+      ['.label-bottom', ['Fluffy days ☼']],
+      ['.scroll-cue', ['SCROLL TO EXPLORE ↓']],
+      ['.intro-strip span', ['Little hunter', 'Big personality', 'A Japanese original', 'A lovely companion']],
+      ['#archive .section-heading h2', ['The Shiba Files<span>.</span>']],
+      ['#archive .section-heading>p', ['From nimble hunters in the mountains of Japan to beloved companions at home. Start with the basics, then get to know each Shiba in their own way.']],
+      ['.archive-card h3', ['Small, swift,<br>with a wild heart.']],
+      ['.archive-card p', ['The Shiba Inu is one of Japan’s native breeds. Compact and alert, with a plush double coat, upright ears, and a curled tail—those are a few of its signature features.']],
+      ['.stamp', ['JAPAN']],
+      ['.fact span', ['Origin', 'Coat', 'Common colors', 'Signature look']],
+      ['.fact b', ['Japan', 'Double coat', 'Red · Black & tan · Sesame', 'Fox-like face']],
+      ['.fact small', ['A Japanese native breed', 'Brush more during seasonal shedding', 'Urajiro cream markings are characteristic', 'Pricked ears, curled tail, expressive face']],
+      ['.fine-note', ['Breed standards vary a little by region. And every Shiba has a personality all their own.']],
+      ['#personality .section-heading h2', ['Personality & Behavior<span>.</span>']],
+      ['#personality .section-heading>p', ['Some of the Shiba’s charm comes from having a mind of their own. Understanding what they need makes life together easier.']],
+      ['.traits article h3', ['Independent thinker', 'Curious explorer', 'Affection on their terms', 'Energy needs an outlet']],
+      ['.traits article p', ['A Shiba may pause to think before joining in. Short, rewarding practice works better than repeating a cue.', 'Walks bring a world of new scents. Leave time to sniff and explore—it is part of a Shiba’s daily enrichment.', 'Trust grows with time. Let your Shiba approach and learn to notice their body language.', 'Regular walks and sniffing games give both body and mind a healthy outlet.']],
+      ['.gentle-note p', ['<b>They are not ignoring you.</b> They are negotiating.']],
+      ['.gentle-note small', ['Use rewards, patience, and clear boundaries to build a rhythm together.']],
+      ['#care .section-heading h2', ['First-time Shiba Guide<span>.</span>']],
+      ['#care .section-heading>p', ['Before welcoming a new family member, prepare the everyday essentials. Small, steady routines help a Shiba feel safe at home.']],
+      ['.care-intro h3', ['Make care part<br>of your daily ritual.']],
+      ['.care-intro p', ['You do not have to get everything right at once. Start with one small step.']],
+      ['.checklist h3', ['Walks & safety', 'Grooming & home', 'Training & connection', 'Budget & vet care']],
+      ['.checklist p', ['Make time for daily activity and sniffing. Use a well-fitted harness and leash; keep your Shiba leashed outdoors.', 'Brush regularly and more often during heavy shedding. Keep a brush, nail clippers, and a quiet resting spot ready.', 'Keep training brief and reward the behavior you want. Introduce tooth brushing, paw handling, and alone time gradually.', 'Plan for food, preventive care, and unexpected vet costs. Book an initial exam to discuss vaccines and parasite prevention.']],
+      ['.care-footer span', ['One small step each day is a lovely start.']],
+      ['.care-footer a', ['Explore health & care →']],
+      ['#health .section-heading h2', ['Common Health & Care<span>.</span>']],
+      ['#health .section-heading>p', ['Keep a health record and notice changes in everyday behavior. This overview is for general information and cannot replace veterinary advice.']],
+      ['.health-intro h3', ['Noticing little changes<br>is a kind of care.']],
+      ['.health-intro p', ['At checkups, ask your veterinarian about joints, eyes, skin, and weight. Screening needs vary by age and lifestyle.']],
+      ['.health-intro a', ['Sources & further reading ↓']],
+      ['.health-list summary b', ['Hips & knees', 'Skin & allergies', 'Eyes & daily checks', 'Preventive care']],
+      ['.health-list summary small', ['Notice changes in walking or jumping', 'Look for itching, paw licking, or redness', 'Watch for discharge, squinting, or cloudiness', 'Care schedules differ from dog to dog']],
+      ['.health-list details>p', ['Hip dysplasia and kneecap luxation can occur in Shibas. If you notice limping, reluctance to jump, or discomfort after activity, arrange a veterinary exam.', 'Itching can have many causes. Note when it happens and any changes in food or surroundings. Ask a veterinarian before using any medication.', 'Redness, pain, squinting, cloudy eyes, or changes in vision deserve prompt veterinary attention.', 'Plan vaccines, parasite prevention, dental care, and checkups with your veterinarian based on age, location, and lifestyle.']],
+      ['.medical-note', ['For emergencies such as trouble breathing, repeated vomiting, inability to stand, or severe pain, contact an emergency veterinary clinic right away.']],
+      ['#fun h2', ['Shiba Fun & Memes<span>.</span>']],
+      ['.fun-intro', ['Shiba life is funny enough without much of a caption.']],
+      ['.meme-grid article p', ['Me: An early night sounds good', 'Before bath time: I heard nothing', 'What is that in your hand?']],
+      ['.meme-grid article b', ['Shiba: It is walk o’clock.', 'After the blow-dry: I am off duty.', 'Could I have just one bite?']],
+      ['.fun-footnote', ['Just-for-fun Shiba moments. Every dog has their own personality.']],
+      ['.closing h2', ['Here’s to every Shiba<br><em>finding a safe, loving home.</em>']],
+      ['.closing>p:not(.eyebrow)', ['Thanks for getting to know the breed. May every walk, nap, and little adventure become a favorite part of your days together.']],
+      ['.closing .button', ['Back to the top ↑']],
+      ['.sources span', ['Sources']],
+      ['.sources a', ['AKC Shiba Inu breed guide ↗', 'VCA Shiba Inu health guide ↗', 'AVMA pet care ↗']],
+      ['.site-footer>p', ['Health information is for general education. Ask a licensed veterinarian about diagnosis, vaccines, and medication.']],
+      ['.copyright', ['© <span id="year"></span> Shiba Days · Made with care for every Shiba']]
+    ];
+
+    function setLanguage(language) {
+      englishCopy.forEach(function ([selector, translations]) {
+        document.querySelectorAll(selector).forEach(function (element, index) {
+          if (!originalCopy.has(element)) originalCopy.set(element, element.innerHTML);
+          element.innerHTML = language === 'en' ? translations[index] : originalCopy.get(element);
+        });
+      });
+      document.documentElement.lang = language === 'en' ? 'en' : 'zh-Hant';
+      document.title = language === 'en' ? 'Shiba Days | A Little Guide to Shiba Inu' : '柴柴日和｜一本暖暖的柴犬生活圖鑑';
+      document.querySelector('meta[name="description"]').content = language === 'en'
+        ? 'A friendly guide to Shiba Inu breed traits, behavior, everyday care, and health.'
+        : '走進柴犬的日常：認識品種、性格、照護與健康，陪你和柴柴一起過好每一天。';
+      languageButton.textContent = language === 'en' ? '中文' : 'EN';
+      languageButton.setAttribute('aria-label', language === 'en' ? 'Switch to Traditional Chinese' : '切換為英文');
+      document.querySelector('.site-nav').setAttribute('aria-label', language === 'en' ? 'Main navigation' : '主要導覽');
+      document.querySelector('.brand').setAttribute('aria-label', language === 'en' ? 'Shiba Days home' : '柴柴日和首頁');
+      menuButton.setAttribute('aria-label', menuButton.getAttribute('aria-expanded') === 'true'
+        ? (language === 'en' ? 'Close navigation menu' : '關閉導覽選單')
+        : (language === 'en' ? 'Open navigation menu' : '開啟導覽選單'));
+      document.getElementById('year').textContent = new Date().getFullYear();
+      savePreference('shiba-language', language);
+    }
+
+    function setTheme(theme) {
+      document.body.dataset.theme = theme;
+      const dark = theme === 'dark';
+      themeButton.querySelector('span').textContent = dark ? '☀' : '☾';
+      const language = document.documentElement.lang;
+      const label = dark
+        ? (language === 'en' ? 'Switch to light theme' : '切換淺色主題')
+        : (language === 'en' ? 'Switch to dark theme' : '切換深色主題');
+      themeButton.setAttribute('aria-label', label);
+      themeButton.title = label;
+      document.querySelector('meta[name="theme-color"]').content = dark ? '#20221f' : '#f6f0e4';
+      savePreference('shiba-theme', theme);
+    }
+
+    const savedLanguage = readPreference('shiba-language', 'zh');
+    setLanguage(savedLanguage);
+    setTheme(readPreference('shiba-theme', 'light'));
+    languageButton.addEventListener('click', function () {
+      setLanguage(document.documentElement.lang === 'en' ? 'zh' : 'en');
+      setTheme(document.body.dataset.theme);
+    });
+    themeButton.addEventListener('click', function () {
+      setTheme(document.body.dataset.theme === 'dark' ? 'light' : 'dark');
+    });
     menuButton.addEventListener('click', function () {
       const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
       menuButton.setAttribute('aria-expanded', String(!isOpen));
-      menuButton.setAttribute('aria-label', isOpen ? '開啟導覽選單' : '關閉導覽選單');
       siteNav.classList.toggle('is-open', !isOpen);
+      menuButton.setAttribute('aria-label', isOpen
+        ? (document.documentElement.lang === 'en' ? 'Open navigation menu' : '開啟導覽選單')
+        : (document.documentElement.lang === 'en' ? 'Close navigation menu' : '關閉導覽選單'));
     });
     siteNav.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', function () {
         siteNav.classList.remove('is-open');
         menuButton.setAttribute('aria-expanded', 'false');
-        menuButton.setAttribute('aria-label', '開啟導覽選單');
       });
     });
-    document.getElementById('year').textContent = new Date().getFullYear();
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const revealItems = document.querySelectorAll('.section-heading, .archive-card, .fact, .traits article, .checklist article, .health-list details, .meme-grid article');
+    if (!reducedMotion && 'IntersectionObserver' in window) {
+      document.body.classList.add('has-motion');
+      const revealObserver = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.14 });
+      revealItems.forEach(function (item, index) {
+        item.classList.add('reveal');
+        item.style.setProperty('--reveal-delay', (index % 4) * 75 + 'ms');
+        revealObserver.observe(item);
+      });
+    }
   </script>
 </body>
 </html>
