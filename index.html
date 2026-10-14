@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="暖暖的柴犬生活小誌：認識柴犬、飼養指南與可愛日常。" data-i18n-meta="description">
+  <title data-i18n-title="pageTitle">柴日和｜Shiba Days</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Shippori+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="grain"></div>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="柴日和首頁" data-i18n-aria="brandLabel"><span class="brand-mark">柴</span><span data-i18n="brandName">柴日和<small>SHIBA DAYS</small></span></a>
+    <nav class="nav" aria-label="主要導覽" data-i18n-aria="navLabel">
+      <a class="active" href="#home" data-i18n="navHome">首頁</a>
+      <a href="#archive" data-i18n="navArchive">柴犬檔案館</a>
+      <a href="#personality" data-i18n="navPersonality">性格與行為</a>
+      <a href="#guide" data-i18n="navGuide">新手飼養指南</a>
+      <a href="#health" data-i18n="navHealth">健康與醫療</a>
+      <a href="#fun" data-i18n="navFun">迷因趣味</a>
+    </nav>
+    <div class="header-tools">
+      <button class="setting-button theme-toggle" id="theme-toggle" type="button" aria-label="切換深色主題" aria-pressed="false"><span class="theme-icon" aria-hidden="true">☾</span><span data-i18n="themeDark">深色</span></button>
+      <button class="setting-button language-toggle" id="language-toggle" type="button" aria-label="Switch to English" lang="en">EN</button>
+      <button class="menu-button" type="button" aria-label="開啟選單" aria-expanded="false" data-i18n-aria="menuOpen"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero section">
+      <div class="hero-copy">
+        <p class="eyebrow" data-i18n="heroEyebrow">いらっしゃいませ・歡迎來到柴日和</p>
+        <h1 data-i18n-html="heroTitle">每一天，都被<br><em>柴</em>治癒。</h1>
+        <p class="intro" data-i18n-html="heroIntro">捲起的小尾巴、倔強的側臉，還有不經意的溫柔。<br>一起認識這位來自日本的可愛生活家。</p>
+        <a class="primary-button" href="#archive" data-i18n-html="heroCta">開始認識柴犬 <span>→</span></a>
+      </div>
+      <div class="hero-art" aria-label="一隻可愛的柴犬插畫" data-i18n-aria="heroArtLabel">
+        <span class="leaf leaf-1">✿</span><span class="leaf leaf-2">✦</span><span class="leaf leaf-3">✿</span>
+        <div class="sun" data-i18n="heroSun">日和</div>
+        <div class="shiba">
+          <i class="ear ear-left"></i><i class="ear ear-right"></i>
+          <div class="face"><i class="brow brow-left"></i><i class="brow brow-right"></i><i class="eye eye-left"></i><i class="eye eye-right"></i><i class="muzzle"></i><i class="nose"></i><i class="mouth"></i></div>
+          <div class="body"><i class="chest"></i><i class="paw paw-left"></i><i class="paw paw-right"></i><i class="tail"></i></div>
+        </div>
+        <p class="art-caption" data-i18n="heroCaption">今日もいい日だワン</p>
+      </div>
+      <div class="scroll-note">SCROLL <span>↓</span></div>
+    </section>
+
+    <section id="archive" class="section archive">
+      <div class="section-heading"><p class="eyebrow" data-i18n="archiveEyebrow">01 ・柴犬檔案館</p><h2 data-i18n-html="archiveTitle">小小身軀裡的<br>大大日本魂</h2></div>
+      <div class="archive-grid">
+        <article class="profile-card main-profile"><div class="stamp" data-i18n="archiveOrigin">日本原產</div><span class="card-icon">🐕</span><h3>Shiba Inu</h3><p data-i18n="archiveProfile">柴犬是日本最古老的犬種之一，原先是靈活的山林獵犬，現在則是風靡世界的療癒夥伴。</p><div class="coat-dots"><span></span><span></span><span></span><span></span></div></article>
+        <article class="fact-card"><span>📏</span><h3 data-i18n="factSize">小型偏中型</h3><p data-i18n-html="factSizeDetail">肩高約 35–43 cm<br>體重約 7–11 kg</p></article>
+        <article class="fact-card"><span>🎨</span><h3 data-i18n="factCoat">毛色四選一</h3><p data-i18n-html="factCoatDetail">赤、黑褐、胡麻<br>與奶油色</p></article>
+        <article class="fact-card"><span>⌛</span><h3 data-i18n="factLifespan">陪伴 12–15 年</h3><p data-i18n="factLifespanDetail">穩定照護與健康習慣，讓相伴的時光更長久。</p></article>
+      </div>
+    </section>
+
+    <section id="personality" class="section personality">
+      <div class="section-heading centered"><p class="eyebrow" data-i18n="personalityEyebrow">02 ・性格與行為</p><h2 data-i18n-html="personalityTitle">獨立、聰明、<br>偶爾有點固執</h2><p data-i18n="personalityIntro">柴犬不是時時黏人的毛孩，卻會用自己的方式，把你放在心上。</p></div>
+      <div class="trait-list">
+        <article><b>01</b><span class="trait-icon">☀</span><h3 data-i18n="traitIndependent">自信獨立</h3><p data-i18n="traitIndependentDetail">喜歡保有自己的小空間，是很有想法的夥伴。</p></article>
+        <article><b>02</b><span class="trait-icon">♡</span><h3 data-i18n="traitLoyal">忠誠專一</h3><p data-i18n="traitLoyalDetail">認定家人後，會安靜地守在你身邊。</p></article>
+        <article><b>03</b><span class="trait-icon">⚡</span><h3 data-i18n="traitEnergetic">精力充沛</h3><p data-i18n="traitEnergeticDetail">每天散步與探索，是牠維持好心情的祕訣。</p></article>
+        <article><b>04</b><span class="trait-icon">◌</span><h3 data-i18n="traitClean">愛乾淨</h3><p data-i18n="traitCleanDetail">像貓咪般整理自己，也很在意生活環境。</p></article>
+      </div>
+      <p class="quote" data-i18n="personalityQuote">「尊重牠的節奏，牠就會用最柴的方式愛你。」</p>
+    </section>
+
+    <section id="guide" class="section guide">
+      <div class="guide-illustration"><div class="house">⌂</div><span>WELCOME<br>HOME</span></div>
+      <div class="guide-content"><p class="eyebrow" data-i18n="guideEyebrow">03 ・新手飼養指南</p><h2 data-i18n-html="guideTitle">準備好，<br>迎接新家人了嗎？</h2><div class="accordion">
+        <details open><summary data-i18n-html="guideExerciseTitle"><span>01</span> 每日運動 <i>+</i></summary><p data-i18n="guideExerciseDetail">安排早晚各一次、每次約 30 分鐘的散步。嗅聞與探索和走路同樣重要。</p></details>
+        <details><summary data-i18n-html="guideSocialTitle"><span>02</span> 社會化練習 <i>+</i></summary><p data-i18n="guideSocialDetail">從幼犬期循序認識人、狗狗與不同聲音，建立從容又有安全感的個性。</p></details>
+        <details><summary data-i18n-html="guideRulesTitle"><span>03</span> 溫柔且一致的規則 <i>+</i></summary><p data-i18n="guideRulesDetail">柴犬很聰明，也會測試界線。以獎勵取代責罵，全家使用一致指令。</p></details>
+      </div></div>
+    </section>
+
+    <section id="health" class="section health">
+      <div class="section-heading"><p class="eyebrow" data-i18n="healthEyebrow">04 ・常見健康與醫療</p><h2 data-i18n-html="healthTitle">把平凡日子，<br>照顧得很安心</h2></div>
+      <div class="health-note"><span data-i18n="healthNoteLabel">小叮嚀</span><p data-i18n="healthNote">以下內容是日常照護參考，若發現異常，請儘快諮詢獸醫師。</p></div>
+      <div class="health-grid">
+        <article><span>👁</span><h3 data-i18n="healthEyes">眼睛保健</h3><p data-i18n="healthEyesDetail">留意淚痕、分泌物與眼睛混濁；定期健康檢查很重要。</p></article>
+        <article><span>✦</span><h3 data-i18n="healthSkin">皮膚與換毛</h3><p data-i18n="healthSkinDetail">換毛季勤梳毛，若持續搔癢、掉毛或泛紅，應就醫評估。</p></article>
+        <article><span>🦴</span><h3 data-i18n="healthJoints">關節照護</h3><p data-i18n="healthJointsDetail">維持合宜體重、避免過度跳躍，讓關節有更長久的支持。</p></article>
+      </div>
+    </section>
+
+    <section id="fun" class="section fun">
+      <div class="fun-copy"><p class="eyebrow" data-i18n="funEyebrow">05 ・迷因與趣味專區</p><h2 data-i18n-html="funTitle">柴犬的內心戲，<br>比你想得更多。</h2><p data-i18n="funIntro">那個經典的側眼、那抹神祕微笑，讓柴犬成為網路世界裡最具辨識度的表情包明星。</p><button id="meme-button" class="primary-button" type="button" data-i18n-html="memeButton">今日柴語錄 <span>↻</span></button></div>
+      <div class="meme-card"><div class="meme-face">◕ᴥ◕</div><p id="meme-text" data-i18n-html="meme0">「我不是不想散步，<br>我是在思考人生。」</p><small>SHIBA THOUGHTS</small></div>
+    </section>
+  </main>
+
+  <footer><a class="brand" href="#home"><span class="brand-mark">柴</span><span data-i18n="brandName">柴日和<small>SHIBA DAYS</small></span></a><p data-i18n="footerText">把每個平凡的日子，過成柴犬曬太陽的樣子。</p><a href="#home" data-i18n="backToTop">回到上方 ↑</a></footer>
+  <script>
+    const translations = {
+      'zh-Hant': {
+        pageTitle: '柴日和｜Shiba Days', description: '暖暖的柴犬生活小誌：認識柴犬、飼養指南與可愛日常。', brandName: '柴日和<small>SHIBA DAYS</small>', brandLabel: '柴日和首頁', navLabel: '主要導覽', navHome: '首頁', navArchive: '柴犬檔案館', navPersonality: '性格與行為', navGuide: '新手飼養指南', navHealth: '健康與醫療', navFun: '迷因趣味', menuOpen: '開啟選單', menuClose: '關閉選單',
+        themeDark: '深色', themeLight: '淺色', themeEnableDark: '切換深色主題', themeEnableLight: '切換淺色主題', languageLabel: 'EN', languageAria: 'Switch to English',
+        heroEyebrow: 'いらっしゃいませ・歡迎來到柴日和', heroTitle: '每一天，都被<br><em>柴</em>治癒。', heroIntro: '捲起的小尾巴、倔強的側臉，還有不經意的溫柔。<br>一起認識這位來自日本的可愛生活家。', heroCta: '開始認識柴犬 <span>→</span>', heroArtLabel: '一隻可愛的柴犬插畫', heroSun: '日和', heroCaption: '今日もいい日だワン',
+        archiveEyebrow: '01 ・柴犬檔案館', archiveTitle: '小小身軀裡的<br>大大日本魂', archiveOrigin: '日本原產', archiveProfile: '柴犬是日本最古老的犬種之一，原先是靈活的山林獵犬，現在則是風靡世界的療癒夥伴。', factSize: '小型偏中型', factSizeDetail: '肩高約 35–43 cm<br>體重約 7–11 kg', factCoat: '毛色四選一', factCoatDetail: '赤、黑褐、胡麻<br>與奶油色', factLifespan: '陪伴 12–15 年', factLifespanDetail: '穩定照護與健康習慣，讓相伴的時光更長久。',
+        personalityEyebrow: '02 ・性格與行為', personalityTitle: '獨立、聰明、<br>偶爾有點固執', personalityIntro: '柴犬不是時時黏人的毛孩，卻會用自己的方式，把你放在心上。', traitIndependent: '自信獨立', traitIndependentDetail: '喜歡保有自己的小空間，是很有想法的夥伴。', traitLoyal: '忠誠專一', traitLoyalDetail: '認定家人後，會安靜地守在你身邊。', traitEnergetic: '精力充沛', traitEnergeticDetail: '每天散步與探索，是牠維持好心情的祕訣。', traitClean: '愛乾淨', traitCleanDetail: '像貓咪般整理自己，也很在意生活環境。', personalityQuote: '「尊重牠的節奏，牠就會用最柴的方式愛你。」',
+        guideEyebrow: '03 ・新手飼養指南', guideTitle: '準備好，<br>迎接新家人了嗎？', guideExerciseTitle: '<span>01</span> 每日運動 <i>+</i>', guideExerciseDetail: '安排早晚各一次、每次約 30 分鐘的散步。嗅聞與探索和走路同樣重要。', guideSocialTitle: '<span>02</span> 社會化練習 <i>+</i>', guideSocialDetail: '從幼犬期循序認識人、狗狗與不同聲音，建立從容又有安全感的個性。', guideRulesTitle: '<span>03</span> 溫柔且一致的規則 <i>+</i>', guideRulesDetail: '柴犬很聰明，也會測試界線。以獎勵取代責罵，全家使用一致指令。',
+        healthEyebrow: '04 ・常見健康與醫療', healthTitle: '把平凡日子，<br>照顧得很安心', healthNoteLabel: '小叮嚀', healthNote: '以下內容是日常照護參考，若發現異常，請儘快諮詢獸醫師。', healthEyes: '眼睛保健', healthEyesDetail: '留意淚痕、分泌物與眼睛混濁；定期健康檢查很重要。', healthSkin: '皮膚與換毛', healthSkinDetail: '換毛季勤梳毛，若持續搔癢、掉毛或泛紅，應就醫評估。', healthJoints: '關節照護', healthJointsDetail: '維持合宜體重、避免過度跳躍，讓關節有更長久的支持。',
+        funEyebrow: '05 ・迷因與趣味專區', funTitle: '柴犬的內心戲，<br>比你想得更多。', funIntro: '那個經典的側眼、那抹神祕微笑，讓柴犬成為網路世界裡最具辨識度的表情包明星。', memeButton: '今日柴語錄 <span>↻</span>', meme0: '「我不是不想散步，<br>我是在思考人生。」', meme1: '「零食可以晚一點，<br>但現在也可以。」', meme2: '「不是側眼，<br>是我深沉的關懷。」', meme3: '「今天的任務：<br>好好曬一場太陽。」', footerText: '把每個平凡的日子，過成柴犬曬太陽的樣子。', backToTop: '回到上方 ↑'
+      },
+      en: {
+        pageTitle: 'Shiba Days | A Little Shiba Life Guide', description: 'A warm little guide to Shiba Inus: their character, everyday care, and charming quirks.', brandName: 'Shiba Days<small>A LITTLE SHIBA LIFE GUIDE</small>', brandLabel: 'Shiba Days home', navLabel: 'Main navigation', navHome: 'Home', navArchive: 'Shiba 101', navPersonality: 'Personality', navGuide: 'Care guide', navHealth: 'Health', navFun: 'Shiba fun', menuOpen: 'Open menu', menuClose: 'Close menu',
+        themeDark: 'Dark', themeLight: 'Light', themeEnableDark: 'Switch to dark theme', themeEnableLight: 'Switch to light theme', languageLabel: '中文', languageAria: '切換為中文',
+        heroEyebrow: 'いらっしゃいませ · Welcome to Shiba Days', heroTitle: 'Every day, a little<br><em>Shiba</em> joy.', heroIntro: 'A curled tail, a determined side-eye, and kindness when you least expect it.<br>Meet this charming companion from Japan.', heroCta: 'Meet the Shiba Inu <span>→</span>', heroArtLabel: 'A cute illustration of a Shiba Inu', heroSun: 'Good day', heroCaption: 'Another lovely day',
+        archiveEyebrow: '01 · SHIBA ARCHIVE', archiveTitle: 'Small in stature,<br>big in Japanese spirit', archiveOrigin: 'JAPANESE ORIGIN', archiveProfile: 'One of Japan’s oldest dog breeds, the Shiba Inu began as an agile mountain hunter. Today, this beloved companion charms people around the world.', factSize: 'Small to medium', factSizeDetail: 'Height: about 35–43 cm<br>Weight: about 7–11 kg', factCoat: 'Four coat colors', factCoatDetail: 'Red, black and tan, sesame,<br>and cream', factLifespan: '12–15 years together', factLifespanDetail: 'Steady care and healthy habits help make your time together last.',
+        personalityEyebrow: '02 · PERSONALITY & BEHAVIOR', personalityTitle: 'Independent, clever,<br>and a little stubborn', personalityIntro: 'A Shiba may not be glued to your side, but they have their own ways of keeping you close.', traitIndependent: 'Confident & independent', traitIndependentDetail: 'They like a little space and always have a mind of their own.', traitLoyal: 'Loyal by choice', traitLoyalDetail: 'Once you’re family, they’ll quietly stay by your side.', traitEnergetic: 'Full of energy', traitEnergeticDetail: 'Daily walks and new places help keep their spirits up.', traitClean: 'Naturally tidy', traitCleanDetail: 'They groom themselves like cats and care about their surroundings.', personalityQuote: '“Respect their rhythm, and they’ll love you in their own Shiba way.”',
+        guideEyebrow: '03 · A FIRST-TIME CARE GUIDE', guideTitle: 'Ready to welcome<br>a new family member?', guideExerciseTitle: '<span>01</span> Daily exercise <i>+</i>', guideExerciseDetail: 'Plan two walks a day, about 30 minutes each. Sniffing and exploring matter just as much as the steps.', guideSocialTitle: '<span>02</span> Socialization <i>+</i>', guideSocialDetail: 'Gradually introduce people, other dogs, and everyday sounds from puppyhood to build confidence and a sense of safety.', guideRulesTitle: '<span>03</span> Kind, consistent rules <i>+</i>', guideRulesDetail: 'Shibas are clever and may test boundaries. Reward good choices instead of scolding, and keep cues consistent at home.',
+        healthEyebrow: '04 · EVERYDAY HEALTH & CARE', healthTitle: 'Look after the little things<br>that make each day feel good', healthNoteLabel: 'A gentle reminder', healthNote: 'This is general everyday care guidance. If you notice anything unusual, please consult a veterinarian promptly.', healthEyes: 'Eye care', healthEyesDetail: 'Watch for tear stains, discharge, or cloudy eyes. Regular checkups matter.', healthSkin: 'Skin & shedding', healthSkinDetail: 'Brush often during shedding season. See a vet for ongoing itching, hair loss, or redness.', healthJoints: 'Joint care', healthJointsDetail: 'Maintain a healthy weight and avoid excessive jumping to support long-term joint health.',
+        funEyebrow: '05 · MEMES & SHIBA FUN', funTitle: 'There’s a lot going on<br>behind that Shiba face.', funIntro: 'That iconic side-eye and mysterious smile made the Shiba one of the internet’s most recognizable meme stars.', memeButton: 'Today’s Shiba thought <span>↻</span>', meme0: '“I’m not avoiding the walk,<br>I’m thinking about life.”', meme1: '“Snacks can wait a little,<br>but they can also happen now.”', meme2: '“That’s not a side-eye,<br>it’s a thoughtful check-in.”', meme3: '“Today’s plan:<br>find a sunny spot.”', footerText: 'Make an ordinary day feel like a Shiba soaking up the sun.', backToTop: 'Back to top ↑'
+      }
+    };
+
+    const root = document.documentElement;
+    const menuButton = document.querySelector('.menu-button');
+    const nav = document.querySelector('.nav');
+    const themeButton = document.querySelector('#theme-toggle');
+    const languageButton = document.querySelector('#language-toggle');
+    const memeText = document.querySelector('#meme-text');
+    let language = 'zh-Hant';
+    let theme = 'light';
+    let saying = 0;
+    try {
+      language = localStorage.getItem('shiba-language') === 'en' ? 'en' : 'zh-Hant';
+      theme = localStorage.getItem('shiba-theme') === 'dark' ? 'dark' : 'light';
+    } catch (error) { /* Preferences remain usable when storage is unavailable. */ }
+
+    function renderLanguage() {
+      const words = translations[language];
+      root.lang = language;
+      document.querySelectorAll('[data-i18n]').forEach(element => { element.innerHTML = words[element.dataset.i18n]; });
+      document.querySelectorAll('[data-i18n-html]').forEach(element => { element.innerHTML = words[element.dataset.i18nHtml]; });
+      document.querySelectorAll('[data-i18n-aria]').forEach(element => { element.setAttribute('aria-label', words[element.dataset.i18nAria]); });
+      document.querySelectorAll('[data-i18n-title]').forEach(element => { element.textContent = words[element.dataset.i18nTitle]; });
+      document.querySelectorAll('[data-i18n-meta]').forEach(element => { element.setAttribute('content', words[element.dataset.i18nMeta]); });
+      languageButton.textContent = words.languageLabel;
+      languageButton.setAttribute('aria-label', words.languageAria);
+      languageButton.lang = language === 'zh-Hant' ? 'en' : 'zh-Hant';
+      menuButton.setAttribute('aria-label', nav.classList.contains('open') ? words.menuClose : words.menuOpen);
+      memeText.innerHTML = words['meme' + saying];
+      try { localStorage.setItem('shiba-language', language); } catch (error) { /* Keep the current language for this visit. */ }
+    }
+
+    function renderTheme() {
+      root.dataset.theme = theme;
+      const words = translations[language];
+      const isDark = theme === 'dark';
+      themeButton.setAttribute('aria-pressed', String(isDark));
+      themeButton.setAttribute('aria-label', isDark ? words.themeEnableLight : words.themeEnableDark);
+      themeButton.querySelector('.theme-icon').textContent = isDark ? '☀' : '☾';
+      themeButton.querySelector('[data-i18n]').textContent = isDark ? words.themeLight : words.themeDark;
+      try { localStorage.setItem('shiba-theme', theme); } catch (error) { /* Keep the current theme for this visit. */ }
+    }
+
+    languageButton.addEventListener('click', () => { language = language === 'zh-Hant' ? 'en' : 'zh-Hant'; renderLanguage(); renderTheme(); });
+    themeButton.addEventListener('click', () => { theme = theme === 'light' ? 'dark' : 'light'; renderTheme(); });
+    menuButton.addEventListener('click', () => { const open = nav.classList.toggle('open'); menuButton.setAttribute('aria-expanded', String(open)); menuButton.setAttribute('aria-label', translations[language][open ? 'menuClose' : 'menuOpen']); });
+    document.querySelectorAll('.nav a').forEach(link => link.addEventListener('click', () => { nav.classList.remove('open'); menuButton.setAttribute('aria-expanded', 'false'); menuButton.setAttribute('aria-label', translations[language].menuOpen); }));
+    document.addEventListener('keydown', event => { if (event.key === 'Escape') { nav.classList.remove('open'); menuButton.setAttribute('aria-expanded', 'false'); menuButton.setAttribute('aria-label', translations[language].menuOpen); } });
+
+    document.querySelector('#meme-button').addEventListener('click', () => { saying = (saying + 1) % 4; memeText.innerHTML = translations[language]['meme' + saying]; });
+    const links = document.querySelectorAll('.nav a'); const sections = document.querySelectorAll('main section[id]');
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) links.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id)); }), { threshold: .35 });
+    sections.forEach(section => observer.observe(section));
+
+    document.body.classList.add('js-ready');
+    const revealTargets = document.querySelectorAll('.hero-copy, .hero-art, .section-heading, .archive-grid > *, .trait-list > *, .quote, .guide-illustration, .guide-content, .health-note, .health-grid > *, .fun-copy, .meme-card');
+    revealTargets.forEach((element, index) => {
+      element.dataset.reveal = '';
+      if (element.parentElement.matches('.archive-grid, .trait-list, .health-grid')) element.dataset.revealDelay = String(index % 4);
+    });
+    const revealObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('is-visible'); revealObserver.unobserve(entry.target); }
+    }), { threshold: .12, rootMargin: '0px 0px -35px 0px' });
+    revealTargets.forEach(element => revealObserver.observe(element));
+
+    const readingLine = document.createElement('div');
+    readingLine.className = 'reading-line';
+    readingLine.setAttribute('aria-hidden', 'true');
+    document.querySelector('.site-header').append(readingLine);
+    let scrollPending = false;
+    window.addEventListener('scroll', () => {
+      if (scrollPending) return;
+      scrollPending = true;
+      requestAnimationFrame(() => {
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        readingLine.style.transform = `scaleX(${scrollable > 0 ? window.scrollY / scrollable : 0})`;
+        scrollPending = false;
+      });
+    }, { passive: true });
+
+    renderLanguage();
+    renderTheme();
+  </script>
+</body>
+</html>
